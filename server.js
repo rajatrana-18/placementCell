@@ -10,9 +10,15 @@ import interviewRouter from './src/features/interview/interview.routes.js';
 import ejsLayouts from 'express-ejs-layouts';
 import csvRouter from './src/features/csv/csv.routes.js';
 import jobsRouter from './src/features/interview/jobs.routes.js';
+import cors from 'cors';
 
 // Initialize Express application
 const server = express();
+
+server.use(cors({
+    origin: 'http://13.236.117.230:5000',
+    optionsSuccessStatus: 200
+}));
 
 server.use(bodyParser.urlencoded({ extended: false }));
 // Middleware to parse JSON data
