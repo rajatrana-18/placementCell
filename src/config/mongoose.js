@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 // mongodb connection url
-const url = "mongodb+srv://rajatrana000018:UajPjSNUvr0wFZra@cluster0.b2jnaoe.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const url = "mongodb+srv://rajatrana000018:UajPjSNUvr0wFZra@cluster0.b2jnaoe.mongodb.net/employeeDB?retryWrites=true&w=majority&appName=Cluster0";
 // connect to mongodb using mongoose
 export const connectUsingMongoose = async () => {
     try {
