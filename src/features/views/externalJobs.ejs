@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs</title>
+    <style>
+        #jobs{
+            margin: 10%;
+            background-color: antiquewhite;
+        }
+
+        h1{
+            text-align: center;
+        }
+        button {
+            margin: 5%;
+            color: blue;
+            border-radius: 20px;
+        }
+
+        button:hover{
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="jobs">
+        <h1>Apply here</h1>
+        <hr>
+        <button type="button" id="github-jobs-button">GitHub Jobs</button>
+    </div>
+    <script>
+        document.getElementById('github-jobs-button').addEventListener('click', function() {
+            window.location.href = '/api/jobs/github';
+        });
+    </script>
+</body>
+</html>

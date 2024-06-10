@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        form {
+            background-color: #ffffff;
+            margin: 40px 30%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .form-group p {
+            margin-bottom: 0.5rem;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-group input[type="number"] {
+            margin-bottom: 1rem;
+        }
+        .form-group input[readonly] {
+            background-color: #e9ecef;
+        }
+    </style>
+
+</head>
+<body>
+    <form method="POST" action="/api/students/add" class="border p-4 rounded">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" class="form-control" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="batch">Batch</label>
+            <input id="batch" name="batch" type="text" class="form-control" placeholder="Enter the batch name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="college">College</label>
+            <input id="college" name="college" type="text" class="form-control" placeholder="Enter the college name" required>
+        </div>
+        
+
+        <div class="form-group">
+            <p><b>Status</b></p>
+            <input type="radio" id="placed" name="status" value="placed">
+            <label for="placed">Placed</label><br>
+            <input type="radio" id="not-placed" name="status" value="not-placed">
+            <label for="not-placed">Not Placed</label><br>
+        </div>
+        <hr>
+
+        <div class="form-group">
+            <p>Course Scores</p>
+            <label for="DSA">DSA</label>
+            <input id="DSA" name="DSA" type="number" class="form-control" placeholder="DSA marks" required>
+            <label for="WebDev">WebDev</label>
+            <input id="WebDev" name="WebDev" type="number" class="form-control" placeholder="WebDev marks" required>
+            <label for="React">React</label>
+            <input id="React" name="React" type="number" class="form-control" placeholder="React marks" required>
+        </div>
+        <hr>
+
+        <div class="form-group">
+            <p>Interviews</p>
+            <label for="companyName">Company Name</label>
+            <input id="companyName" name="companyName" type="text" class="form-control" required>
+            <label for="Date">Date</label>
+            <input id="Date" name="Date" type="date" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add student</button>
+
+    </form>
+
+</body>
+</html>

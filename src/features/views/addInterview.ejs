@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interviews</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        form {
+            background-color: #ffffff;
+            margin: 40px 30%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .form-group p {
+            margin-bottom: 0.5rem;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-group input[type="number"] {
+            margin-bottom: 1rem;
+        }
+        .form-group input[readonly] {
+            background-color: #e9ecef;
+        }
+    </style>
+
+</head>
+<body>
+    <form method="POST" action="/api/interviews/add" class="border p-4 rounded" onsubmit="return validate()">
+
+        <div class="form-group">
+            <label for="nameID">Name</label>
+            <select id="nameID" name="nameID" class="form-control">
+                <option value="" disabled selected>Select a student</option>
+                <% studentNames.forEach((student)=>{ %>
+                    <option value="<%= student._id %>"><%= student.name %></option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input readonly id="name" name="name" value="" hidden>
+        </div>
+
+        <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input id="companyName" name="companyName" type="text" class="form-control" required>
+            <label for="Date">Date</label>
+            <input id="Date" name="Date" type="date" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Interview</button>
+
+    </form>
+
+    <script>
+        var selectElement = document.getElementById('nameID');        
+        selectElement.addEventListener('change', function() {
+            var selectedOption = selectElement.options[selectElement.selectedIndex];            
+            var selectedName = selectedOption.textContent;            
+            document.getElementById('name').value = selectedName;
+        });
+
+
+        function validate(){
+            var selectedStudent = document.getElementById("nameID").value;
+            if(selectedStudent===""){
+                alert("Please select a student");
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>
